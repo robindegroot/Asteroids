@@ -5,10 +5,12 @@ using System.Collections;
 
 public class ButtonScript : MonoBehaviour
 {
+	public string InfoScene;
+
     public Button startButton; 
 
     void PlayGame()
     {
-        SceneManager.LoadScene(1);
+		SceneManager.LoadScene(InfoScene);
     }
 }

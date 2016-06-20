@@ -12,15 +12,15 @@ public class FishAI : MonoBehaviour {
 		rotateL = Random.Range (0f, 200f);
 		rotateR = Random.Range (0f, 200f);
 		InvokeRepeating ("move", 0, timer);
-		Debug.Log (timer);
+		//Debug.Log (timer);
 
 	}
 
 	void Update () {
 		
-		transform.Translate (Vector3.forward * Time.deltaTime * speed);
-		transform.Rotate (Vector3.down * Time.deltaTime * rotateL);
-		transform.Rotate (Vector3.up * Time.deltaTime * rotateR);
+		transform.Translate (Vector3.up * Time.deltaTime * speed);
+		transform.Rotate (Vector3.forward * Time.deltaTime * rotateL);
+		transform.Rotate (Vector3.back * Time.deltaTime * rotateR);
 	}
 
 	void move(){
@@ -31,7 +31,7 @@ public class FishAI : MonoBehaviour {
 	}
 	void OnTriggerEnter(Collider other)
 	{
-		if (other.tag == "Player") {
+		if (other.tag == "wall") {
 			Destroy (gameObject, 0f);
 		}
 	}

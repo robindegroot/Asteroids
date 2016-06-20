@@ -1,26 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour {
 
 	public string startLevel;
-	public string highScores;
 
-	public GameObject highScoresScreen;
 	public GameObject MainMenuScreen;
     public GameObject GameScene;
 
-    public int Main_scene { get; private set; }
+    public int InfoScene { get; private set; }
 
     public void startGame()
 	{
-		
-	}
-
-	public void instructionsGame()
-	{
-		highScoresScreen.SetActive (true);
-		MainMenuScreen.SetActive (false);
+		SceneManager.LoadScene (startLevel);		
 	}
 
 	public void quitGame()
@@ -29,13 +22,4 @@ public class MainMenu : MonoBehaviour {
 		Application.Quit ();
 
 	}
-
-	public void ReturnGame()
-	{
-		highScoresScreen.SetActive (false);
-		MainMenuScreen.SetActive (true);
-	}
-
-   
-    
 }
